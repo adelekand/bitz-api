@@ -1,0 +1,12 @@
+{
+  "name": "bitz",
+  "version": "1.0.0",
+  "description": "A JavaScript library for https://www.bit-z.com/ api integration",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "David A. Adelekan <adelekandavid2013@gmail.com>",
+  "license": "MIT"
+}
