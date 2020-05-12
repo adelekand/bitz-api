@@ -8,5 +8,13 @@
   },
   "keywords": [],
   "author": "David A. Adelekan <adelekandavid2013@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "26.0.1"
+  },
+  "dependencies": {
+    "axios": "0.19.2",
+    "crypto-js": "^4.0.0",
+    "query-string": "6.12.1"
+  }
 }
