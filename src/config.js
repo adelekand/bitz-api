@@ -11,6 +11,7 @@ module.exports = {
     GET_SERVER_TIME: '/Market/getServerTime',
     GET_USER_ADDRESS: '/Assets/getUserAssets',
     GET_COIN_ADDRESS: '/Trade/getCoinAddress',
-    GET_COIN_ADDRESS_LIST: '/Trade/getCoinAddressList'
+    GET_COIN_ADDRESS_LIST: '/Trade/getCoinAddressList',
+    COIN_OUT: '/Trade/coinOut',
   },
 };

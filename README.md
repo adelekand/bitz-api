@@ -1,16 +1,17 @@
-# BitZ
+# bitz-api
 
-## A JavaScript library for [BitZ Exchange](https://www.bit-z.com/)  api integration
+## A JavaScript library for [bitz-api Exchange](https://www.bitz-api.com/) api integration
 
 #### Install
+
 ```
-npm install bitz
+npm install bitz-api
 ```
 
 #### Usage
 
 ```
-const Bitz = require('bitz');
+const Bitz = require('bitz-api');
 
 Bitz.setConfig({ apiKey: 'XXXXXX', apiSecret: 'XXXXXX', tradePassword: 'XXXXXX' });
 
