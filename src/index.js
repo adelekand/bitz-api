@@ -133,7 +133,7 @@ Bitz.prototype.getCoinAddressList = async function (coin) {
  * @param {number} number - quantity of coin.
  * @param {string} address - withdrawal address.
  * @param {string} memo - memo (Optional).
- * @param {string} type - type， usdt requested，accepted value: erc20,omni.
+ * @param {string} type - type (Optional)， usdt requested，accepted value: erc20,omni.
  */
 Bitz.prototype.coinOut = async function (coin, number, address, memo, type) {
   const data = this.getSignBaseParams();
@@ -153,23 +153,113 @@ Bitz.prototype.coinOut = async function (coin, number, address, memo, type) {
   return await request(options);
 };
 
+/**
+ * Get the price data
+ * @param {string} symbols - coin pairs (e.g eth_btc).
+ */
+Bitz.prototype.getTradeSummary = async function (symbol) {
+  const options = {
+    method: "GET",
+    url: endpoints.GET_TRADE_SUMMARY,
+    params: { symbol },
+    headers: requestHeader.MARKET,
+  };
+  return await request(options);
+};
+
+
+/**
+ * Get depth data
+ * @param {string} symbols - coin pairs (e.g eth_btc).
+ */
+Bitz.prototype.getMarketDepth = async function (symbol) {
+  const options = {
+    method: "GET",
+    url: endpoints.GET_MARKET_DEPTH,
+    params: { symbol },
+    headers: requestHeader.MARKET,
+  };
+  return await request(options);
+};
+
+
+/**
+ * Get the order
+ * @param {string} symbols - coin pairs (e.g eth_btc).
+ */
+Bitz.prototype.getLastTrade = async function (symbol) {
+  const options = {
+    method: "GET",
+    url: endpoints.GET_LAST_TRADE,
+    params: { symbol },
+    headers: requestHeader.MARKET,
+  };
+  return await request(options);
+};
+
+
+/**
+ * Get the price of all symbol
+ @param {string} symbols - coinsymbol pairs (e.g eth_btc,ltc_btc).
+ */
+Bitz.prototype.getAllTradeSumarry = async function (symbols) {
+  const options = {
+    method: "GET",
+    url: endpoints.GET_ALL_TRADE_SUMMARY,
+    params: { symbols },
+    headers: requestHeader.MARKET,
+  };
+  return await request(options);
+};
+
+/**
+ * Get Kline data
+ * @param {string} symbol - coin symbol (e.g eth_btc)
+ * @param {string} resolution - (e.g 1min, 5min, 15min)
+ * @param {integer between 1-300} size
+ * @param {string} to (Optional) - (microsecond) returns data before microsecond
+ */
+Bitz.prototype.getKLine = async function (symbol, resolution, size, to) {
+  const options = {
+    method: "GET",
+    url: endpoints.GET_KLINE,
+    params: { symbol, resolution, size, to },
+    headers: requestHeader.MARKET,
+  };
+  return await request(options);
+};
+
+
+/**
+ * Get the detail of every symbol
+ @param {string} symbols - coinsymbol pairs (e.g eth_btc,ltc_btc).
+ */
+Bitz.prototype.getAvailableCurrencies = async function (symbols) {
+  const options = {
+    method: "GET",
+    url: endpoints.GET_AVALIABLE_CURRENCIES,
+    params: { symbols },
+    headers: requestHeader.MARKET,
+  };
+  return await request(options);
+};
+
+
+/**
+ * Obtian commission of trading mainstream cryptocurrency and new cryptocurrency
+ @param {string} symbols - coinsymbol pairs (e.g eth_btc,ltc_btc).
+ */
+Bitz.prototype.getSymbolListRate = async function (symbols) {
+  const options = {
+    method: "GET",
+    url: endpoints.GET_SYMBOL_LIST_RATE,
+    params: { symbols },
+    headers: requestHeader.MARKET,
+  };
+  return await request(options);
+};
+
 // TODO: implement other bitz api endpoint integration
-
-// Currency Market View API Interface
-
-Bitz.prototype.getTradeSummary = async function () {};
-
-Bitz.prototype.getAllTradeSumarry = async function () {};
-
-Bitz.prototype.getMarketDepth = async function () {};
-
-Bitz.prototype.getLastTrade = async function () {};
-
-Bitz.prototype.getKLine = async function () {};
-
-Bitz.prototype.getAvailableCurrencies = async function () {};
-
-Bitz.prototype.getSymbolListRate = async function () {};
 
 // Currency Trading API Interface
 

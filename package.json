@@ -1,6 +1,6 @@
 {
   "name": "bitz-api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A JavaScript library for https://www.bitz-api.com/ api integration",
   "main": "index.js",
   "scripts": {
@@ -9,6 +9,10 @@
   "keywords": [],
   "author": "David A. Adelekan <adelekandavid2013@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adelekand/bitz-api.git"
+  },
   "devDependencies": {
     "jest": "26.0.1"
   },
