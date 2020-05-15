@@ -200,7 +200,7 @@ Bitz.prototype.getLastTrade = async function (symbol) {
 
 /**
  * Get the price of all symbol
- @param {string} symbols - coinsymbol pairs (e.g eth_btc,ltc_btc).
+ * @param {string} symbols - coinsymbol pairs (e.g eth_btc,ltc_btc).
  */
 Bitz.prototype.getAllTradeSumarry = async function (symbols) {
   const options = {
@@ -232,7 +232,7 @@ Bitz.prototype.getKLine = async function (symbol, resolution, size, to) {
 
 /**
  * Get the detail of every symbol
- @param {string} symbols - coinsymbol pairs (e.g eth_btc,ltc_btc).
+ * @param {string} symbols - coinsymbol pairs (e.g eth_btc,ltc_btc).
  */
 Bitz.prototype.getAvailableCurrencies = async function (symbols) {
   const options = {
@@ -247,7 +247,7 @@ Bitz.prototype.getAvailableCurrencies = async function (symbols) {
 
 /**
  * Obtian commission of trading mainstream cryptocurrency and new cryptocurrency
- @param {string} symbols - coinsymbol pairs (e.g eth_btc,ltc_btc).
+ * @param {string} symbols - coinsymbol pairs (e.g eth_btc,ltc_btc).
  */
 Bitz.prototype.getSymbolListRate = async function (symbols) {
   const options = {
@@ -259,13 +259,84 @@ Bitz.prototype.getSymbolListRate = async function (symbols) {
   return await request(options);
 };
 
-// TODO: implement other bitz api endpoint integration
 
-// Currency Trading API Interface
+/**
+ * Get Market List of Contract Transaction
+ * @param {integer} contractId
+ */
+Bitz.prototype.getContractCoin = async function (contractId) {
+  const options = {
+    method: "GET",
+    url: endpoints.GET_SYMBOL_LIST_RATE,
+    params: { contractId },
+    headers: requestHeader.MARKET,
+  };
+  return await request(options);
+};
 
-// Contract Market View API Interface
 
-// Contract Trade API Interface
+/**
+ * Get K Line Data of Contract
+ * @param {integer} contractId
+ * @param {string} type - (e.g 1min, 5min, 15min)
+ * @param {integer between 1-300} size (Optional)
+ */
+Bitz.prototype.getContractKLine = async function (contractId, type, size) {
+  const options = {
+    method: "GET",
+    url: endpoints.GET_CONTRACT_KLINE,
+    params: { contractId, type, size },
+    headers: requestHeader.MARKET,
+  };
+  return await request(options);
+};
+
+/**
+ * Get the market depth of contract transactions
+ * @param {integer} contractId
+ * @param {string} depth (optional) - (Depth type 5, 10, 15, 20, 30, 100,,default10)
+ */
+Bitz.prototype.getContractOrderBook = async function (contractId, depth) {
+  const options = {
+    method: "GET",
+    url: endpoints.GET_CONTRACT_ORDER_BOOK,
+    params: { contractId, depth },
+    headers: requestHeader.MARKET,
+  };
+  return await request(options);
+};
+
+
+/**
+ * Get Trade History of Certain Contract
+ * @param {integer} contractId
+ * @param {integer} pageSize (optional) - (Get data volume range:10-300 default 10)
+ */
+Bitz.prototype.getContractTradesHistory = async function (contractId, pageSize) {
+  const options = {
+    method: "GET",
+    url: endpoints.GET_CONTRACT_TRADE_HISTORY,
+    params: { contractId, pageSize },
+    headers: requestHeader.MARKET,
+  };
+  return await request(options);
+};
+
+
+/**
+ * Get Newest Contract Tickers
+ * @param {integer} contractId (optional)
+ */
+Bitz.prototype.getContractTickers = async function (contractId) {
+  const options = {
+    method: "GET",
+    url: endpoints.GET_CONTRACT_TICKERS,
+    params: { contractId },
+    headers: requestHeader.MARKET,
+  };
+  return await request(options);
+};
+
 
 // internal methods
 

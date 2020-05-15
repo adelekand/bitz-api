@@ -1,3 +1,6 @@
+const marketEndpointPrefix = '/Market';
+const tradeEndpointPrefix = '/Trade';
+
 module.exports = {
   baseURL: 'https://apiv2.bitz.com/',
   requestHeader: {
@@ -6,22 +9,26 @@ module.exports = {
   },
   endpoints: {
     // Market endpoints
-    GET_CURRENCY_RATE: '/Market/currencyRate',
-    GET_CURRENCY_COIN_RATE: '/Market/currencyCoinRate',
-    GET_COIN_RATE: '/Market/coinRate',
-    GET_SERVER_TIME: '/Market/getServerTime',
-    GET_TRADE_SUMMARY: '/Market/ticker',
-    GET_ALL_TRADE_SUMMARY: '/Market/tickerall',
-    GET_MARKET_DEPTH: '/Market/depth',
-    GET_LAST_TRADE: '/Market/order',
-    GET_KLINE: '/Market/kline',
-    GET_AVALIABLE_CURRENCIES: '/Market/symbolList',
-    GET_SYMBOL_LIST_RATE: '/Market/symbolListRate',
+    GET_CURRENCY_RATE: `${marketEndpointPrefix}/currencyRate`,
+    GET_CURRENCY_COIN_RATE: `${marketEndpointPrefix}/currencyCoinRate`,
+    GET_COIN_RATE: `${marketEndpointPrefix}/coinRate`,
+    GET_SERVER_TIME: `${marketEndpointPrefix}/getServerTime`,
+    GET_TRADE_SUMMARY: `${marketEndpointPrefix}/ticker`,
+    GET_ALL_TRADE_SUMMARY: `${marketEndpointPrefix}/tickerall`,
+    GET_MARKET_DEPTH: `${marketEndpointPrefix}/depth`,
+    GET_LAST_TRADE: `${marketEndpointPrefix}/order`,
+    GET_KLINE: `${marketEndpointPrefix}/kline`,
+    GET_AVALIABLE_CURRENCIES: `${marketEndpointPrefix}/symbolList`,
+    GET_SYMBOL_LIST_RATE: `${marketEndpointPrefix}/symbolListRate`,
+    GET_CONTRACT_COIN: `${marketEndpointPrefix}/getContractCoin`,
+    GET_CONTRACT_ORDER_BOOK: `${marketEndpointPrefix}/getContractOrderBook`,
+    GET_CONTRACT_TRADE_HISTORY: `${marketEndpointPrefix}/getContractTradesHistory`,
+    GET_CONTRACT_TICKERS: `${marketEndpointPrefix}/getContractTickers`,
 
     // Trade endpoints
     GET_USER_ADDRESS: '/Assets/getUserAssets',
-    GET_COIN_ADDRESS: '/Trade/getCoinAddress',
-    GET_COIN_ADDRESS_LIST: '/Trade/getCoinAddressList',
-    COIN_OUT: '/Trade/coinOut',
+    GET_COIN_ADDRESS: `${tradeEndpointPrefix}/getCoinAddress`,
+    GET_COIN_ADDRESS_LIST: `${tradeEndpointPrefix}/getCoinAddressList`,
+    COIN_OUT: `${tradeEndpointPrefix}/coinOut`,
   },
 };

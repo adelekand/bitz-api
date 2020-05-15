@@ -41,23 +41,34 @@ Bitz.setConfig({ apiKey: 'XXXXXX', apiSecret: 'XXXXXX', tradePassword: 'XXXXXX' 
   const availableCurrencies = await Bitz.getAvailableCurrencies('eth_btc,ltc_btc');
 
   const symbolListRate = await Bitz.getSymbolListRate('eth_btc,ltc_btc');
+
+  const contractCoin = await Bitz.getContractCoin(101);
+
+  const contractKLine = await Bitz.getContractKLine(101, '1d', 10);
+
+  const contractOrderBook = await Bitz.getContractOrderBook(101, '10');
+
+  const contractTradeHistory = await Bitz.getContractTradesHistory(101, 20);
+
+  const contractTickers = await Bitz.getContractTickers(101);
 ```
 
 ##### Trade endpoints
 ```javascript
   const userAssets = await Bitz.getUserAssets();
+
   const coinAddress = await Bitz.getCoinAddress('btc');
+
   const coinAddressList = await Bitz.getCoinAddressList('btc');
+
   const coinOut = await Bitz.coinOut('btc', 1000, 'XXXX');
 ```
 
 #### TODOS
 
-- Currency Market View API Interface
-
 - Currency Trading API Interface
 
-- Contract Market View API Interface
-
 - Contract Trade API Interface
+
+- Websocket Market Data
 
