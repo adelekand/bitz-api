@@ -1,6 +1,6 @@
 {
   "name": "bitz-api",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A JavaScript library for https://www.bitz-api.com/ api integration",
   "main": "index.js",
   "scripts": {

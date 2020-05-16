@@ -20,53 +20,74 @@ Bitz.setConfig({ apiKey: 'XXXXXX', apiSecret: 'XXXXXX', tradePassword: 'XXXXXX' 
 
 ##### Market endpoints
 ```javascript
-  const currencyRate = await Bitz.getCurrencyRate('cny_usdt,usdt_cny');
+const currencyRate = await Bitz.getCurrencyRate('cny_usdt,usdt_cny');
 
-  const currencyCoinRate = await Bitz.getCurrencyCoinRate('btc,usdt,eth');
+const currencyCoinRate = await Bitz.getCurrencyCoinRate('btc,usdt,eth');
 
-  const coinRate = await Bitz.getCoinRate('btc,eth');
+const coinRate = await Bitz.getCoinRate('btc,eth');
 
-  const serverTime = await Bitz.getServerTime();
+const serverTime = await Bitz.getServerTime();
 
-  const tradeSummary = await Bitz.getTradeSummary('eth_btc');
-  
-  const marketDepth = await Bitz.getMarketDepth('eth_btc');
-  
-  const lastTrade = await Bitz.getLastTrade('eth_btc');
-  
-  const allTrade = await Bitz.getAllTradeSumarry('eth_btc,ltc_btc');
+const tradeSummary = await Bitz.getTradeSummary('eth_btc');
 
-  const kLine = await Bitz.getKLine('eth_btc', '5day', 5);
+const marketDepth = await Bitz.getMarketDepth('eth_btc');
 
-  const availableCurrencies = await Bitz.getAvailableCurrencies('eth_btc,ltc_btc');
+const lastTrade = await Bitz.getLastTrade('eth_btc');
 
-  const symbolListRate = await Bitz.getSymbolListRate('eth_btc,ltc_btc');
+const allTrade = await Bitz.getAllTradeSumarry('eth_btc,ltc_btc');
 
-  const contractCoin = await Bitz.getContractCoin(101);
+const kLine = await Bitz.getKLine('eth_btc', '5day', 5);
 
-  const contractKLine = await Bitz.getContractKLine(101, '1d', 10);
+const availableCurrencies = await Bitz.getAvailableCurrencies('eth_btc,ltc_btc');
 
-  const contractOrderBook = await Bitz.getContractOrderBook(101, '10');
+const symbolListRate = await Bitz.getSymbolListRate('eth_btc,ltc_btc');
 
-  const contractTradeHistory = await Bitz.getContractTradesHistory(101, 20);
+const contractCoin = await Bitz.getContractCoin(101);
 
-  const contractTickers = await Bitz.getContractTickers(101);
+const contractKLine = await Bitz.getContractKLine(101, '1d', 10);
+
+const contractOrderBook = await Bitz.getContractOrderBook(101, '10');
+
+const contractTradeHistory = await Bitz.getContractTradesHistory(101, 20);
+
+const contractTickers = await Bitz.getContractTickers(101);
 ```
 
 ##### Trade endpoints
 ```javascript
-  const userAssets = await Bitz.getUserAssets();
+const userAssets = await Bitz.getUserAssets();
 
-  const coinAddress = await Bitz.getCoinAddress('btc');
+const coinAddress = await Bitz.getCoinAddress('btc');
 
-  const coinAddressList = await Bitz.getCoinAddressList('btc');
+const coinAddressList = await Bitz.getCoinAddressList('btc');
 
-  const coinOut = await Bitz.coinOut('btc', 1000, 'XXXX');
+const coinOut = await Bitz.coinOut('btc', 1000, 'XXXX');
+
+const addTradeLimitOrder = await Bitz.addLimitTradeOrder({
+  symbol: 'edc_btc',
+  number: 'XXXXXX',
+  price: 'XXXXXX',
+  type: '2'
+});
+
+const openTradeOrder = await Bitz.getOpenTradeOrders({
+  coinFrom: 'edc',
+  cointTo: 'btc'
+});
+
+const tradeOrderHistory = await Bitz.getTradeOrderHistory({
+    coinFrom: 'edc',
+    cointTo: 'btc'
+  });
+
+const cancelOrder = await Bitz.cancelTradeOrder('XXXXXX');
+
+const orderDetails = await Bitz.getTradeOrderDetails('XXXXXX');
+
+const marketTrade = await Bitz.submitMarketTrade('eth_btc', 500, 2);
 ```
 
 #### TODOS
-
-- Currency Trading API Interface
 
 - Contract Trade API Interface
 
