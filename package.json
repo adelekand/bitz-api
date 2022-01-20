@@ -17,7 +17,7 @@
     "jest": "26.0.1"
   },
   "dependencies": {
-    "axios": "0.19.2",
+    "axios": "0.21.2",
     "crypto-js": "^4.0.0",
     "query-string": "6.12.1"
   }
